@@ -5,6 +5,8 @@ The last three letters of a Salesforce ID are a compacted way of remembering the
 
 [This old page](https://astadiaemea.wordpress.com/2010/06/21/15-or-18-character-ids-in-salesforce-com-%E2%80%93-do-you-know-how-useful-unique-ids-are-to-your-development-effort/ ) has a really nice diagram, but keep in mind, it's showing you how to go from 15 to 18, which is the opposite of what I'm doing here. But, the chart with `A=00000` etc is very useful.
 
+[Here's a working example](http://mikegedelman.github.io/salesforce-recaseify/)
+
 1. For each of the last 3 characters of the 18 digit ID:
   1. Calculate the distance from the letter A. For numbers, you can do 26 + theNumber. `A=0, B=1, C=2`, etc.
   2. Get a binary representation of that same number. Hopefully you already know this one. `A=00000, B=00001, C=00010`, etc.
@@ -19,12 +21,12 @@ My input ID is `A1NG0000006HIZRMAI`.
 ```
 M = 12 = 01100 =(reverse) 00110
 A = 0 = 00000
-I = 8 = 00100 
+I = 8 = 00100
 
 mask = 00110 00000 00100
   id = A1NG0 00000 6HIZR MA5
-       a1NG0 00000 6hIzr MA5 => 
-       
+       a1NG0 00000 6hIzr MA5 =>
+
   15:   a1NG0000006hIzr
   18:   a1NG0000006hIzrMA5
 ```
