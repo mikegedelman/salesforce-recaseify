@@ -1,14 +1,50 @@
-<!DOCTYPE HTML>
-<html>
- <body>
-  <form action="javascript:recaseifyInput()">
-    <input type="text" id="sfId"/> <input type="submit">
-  <script src="recaseify.js"></script>
-  <script>
-    function recaseifyInput() {
-      var ele = document.getElementById('sfId');
-      ele.value = recaseify(ele.value);
-    }
-  </script>
- <body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>recaseify</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="//github.com/mikegedelman/salesforce-recaseify">View Github Repository</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">salesforce-recaseify</h3>
+      </div>
+
+        <form action="javascript:recaseifyInput()">
+          <fieldset class="form-group">
+            <label for="sfId">18 Digit Salesforce Id</label>
+            <input type="text" id="sfId" class="form-control" placeholder="A1NG0000006HIZRMAI"/>
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Recaseify</button>
+        </form>
+
+
+
+    </div> <!-- /container -->
+
+
+
+    <script src="recaseify.js"></script>
+    <script>
+      function recaseifyInput() {
+        var ele = document.getElementById('sfId');
+        ele.value = recaseify(ele.value);
+      }
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
