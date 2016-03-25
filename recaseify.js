@@ -57,4 +57,3 @@ function recaseify(id) {
   }
   return ret;
 }
-console.log(recaseify("A1NG0000006HIZRMAI"));
