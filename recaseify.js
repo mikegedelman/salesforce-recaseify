@@ -55,5 +55,5 @@ function recaseify(id) {
       ret += id[i].toLowerCase();
     }
   }
-  return ret;
+  return ret + id.slice(-3);
 }
