@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+ <body>
+  <form action="javascript:recaseifyInput()">
+    <input type="text" id="sfId"/> <input type="submit">
+  <script src="recaseify.js"></script>
+  <script>
+    function recaseifyInput() {
+      var ele = document.getElementById('sfId');
+      ele.value = recaseify(ele.value);
+    }
+  </script>
+ <body>
+</html>
