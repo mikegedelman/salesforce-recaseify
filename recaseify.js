@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /* each of the three characters at the end of an 18-character ID implies a mask
  *  5 out of the 15 digits of the 15 digit ID.
  *
@@ -17,9 +16,19 @@
 
 /* 5-character string representing the mask implied by the checksum char */
 function getBinary(character) {
-  var decimal = character.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
-  var bin = (decimal >>> 0).toString(2);
-  var reverseMe = Array(6 - bin.length).join('0') + bin;
+  /* ASCII codes weren't arranged with this in mind, so we have to treat
+   * [0-5] separately. Add the distance of the whole alphabet plus our int.
+   */
+  var integer = parseInt(character);
+  var decimal;
+  if (!isNaN(integer)) {
+    decimal =  26 + integer;
+  } else {
+    decimal = character.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
+  }
+
+  var binary = (decimal >>> 0).toString(2); // note this is a string
+  var reverseMe = Array(6 - binary.length).join('0') + binary;
   return reverseMe.split('').reverse().join('');
 }
 
@@ -48,6 +57,4 @@ function recaseify(id) {
   }
   return ret;
 }
-
-var arg = process.argv.slice(2);
-console.log(recaseify(arg[0]));
+console.log(recaseify("A1NG0000006HIZRMAI"));
